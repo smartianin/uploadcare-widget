@@ -56,6 +56,7 @@ Result:
     var input = wraper
       .find('[role="uploadcare-uploader"]')
       .attr("data-crop", this.value);
+  
     wraper.empty().append(input.clone());
     uploadcare.initialize(wraper);
   });
@@ -72,3 +73,22 @@ Result:
     value=""
   />
 </p>
+
+
+<p>
+  <input
+    class="long-input"
+    id="crop-event-order"
+    placeholder="here will be result CDN url"
+    data-crop="4:3"
+    data-preview-step
+    value=""
+  />
+</p>
+
+<script>
+  const widget = uploadcare.Widget('#crop-event-order')
+
+  widget.onChange(() => console.log('onChange'))
+  widget.onUploadComplete(() => console.log('onUploadComplete'))
+</script>
